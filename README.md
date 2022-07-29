@@ -28,3 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 // Project Console: https://console.firebase.google.com/project/projectsapp-2d787/overview# ProjectsManagement
+# projectsList
