@@ -54,8 +54,23 @@
           <td>{{ project.projectSummery }}</td>
           <td>{{ project.createDate }}</td>
           <td>{{ project.lastUpdateDate }}</td>
-          <td>{{ project.permissions }}</td>
+          <td>{{ project.permissions[0] }} <br>
+            {{ project.permissions[1]}}<br>
+            {{ project.permissions[2]}}<br>
+            {{ project.permissions[3]}}<br>
+            {{ project.permissions[4]}}<br>
+            {{ project.permissions[5]}}<br>
+            {{ project.permissions[6]}}<br>
+            {{ project.permissions[7]}}<br>
+            {{ project.permissions[8]}}<br>
+          </td>
 
+           <!-- <td> 
+                <tr
+            *ngFor="
+              let perm of permissions
+            "
+          > {{ perm }} </tr> </td>  -->
           
           <td class="text-center action-block">
             <span
@@ -71,14 +86,14 @@
           </td>
           <td class="text-center action-block">
             enter email of someone to share this project with: <br>
-            <input placeHoldar="enter email">  <br> 
+            <input type="email" [(ngModel)]="emailOfSomeoneToInvite">  <br> 
             <span
             class="mr-2 btn btn-outline-primary btn-sm"
-            (click)="shareProject(project, 'ata@gmail.com')"
+            (click)="shareProject(project)"
             >Share it! </span
           >
           <br> 
-                </td>
+        </td>
 
         </tr>
       </tbody>

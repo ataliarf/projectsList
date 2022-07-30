@@ -11,11 +11,12 @@ import {
 export class CrudService {
   projectsRef: AngularFireList<any>;
   projectRef: AngularFireObject<any>;
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {
+  }
 
   // Create Project
   AddProject(project: Project) {
-    const newArr= [project.ownerEmail];
+    const newArr = new Array(project.ownerEmail);
     this.projectsRef.push({
       projectName: project.projectName,
       projectSummery: project.projectSummery,
@@ -23,8 +24,10 @@ export class CrudService {
       lastUpdateDate: project.lastUpdateDate,
       ownerEmail: project.ownerEmail,
       permissions: newArr,
-      // projectKeyWords: project.projectKeyWords,
     });
+console.log('is array', Array.isArray(newArr));
+console.log('newarr', newArr);
+
   }
   // Fetch Single Project Object
   GetProject(id: string) {
@@ -54,14 +57,17 @@ export class CrudService {
     this.projectRef.remove();
   }
 
-  ShareProject(id: string, currentPermissions: string[],  emailToAdd: string) {
+  ShareProject(id: string, currentPermissions: any ,  emailToAdd: string, counter: number) {
+    console.log('current perm:', currentPermissions);
+    const maybeArr = Object.values(currentPermissions);
+    console.log('maybeArr:', maybeArr);
+    maybeArr.push(emailToAdd);
+    console.log('maybeArr:', maybeArr);
 
-    const newArr=[currentPermissions];
-    console.log(newArr.flat);
-    this.projectRef = this.db.object('projects-list/' + id);
-    this.projectRef.update({
-      permissions: newArr,
-    });
-    
+     this.projectRef = this.db.object('projects-list/' + id);
+     this.projectRef.update({
+       permissions: maybeArr,
+     });
   }
 }
+

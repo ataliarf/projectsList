@@ -3,9 +3,12 @@ import { CrudService } from '../shared/crud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatListModule} from '@angular/material/list';
+import {FormControl} from '@angular/forms';
+
 
 @Component({
-  selector: 'app-add-student',
+  selector: 'app-add-project', 
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.scss'],
 })
@@ -19,8 +22,8 @@ export class AddProjectComponent implements OnInit {
     public toastr: ToastrService
   ) {}
 
-  keys: string[] = ['History'];
-  allKeys: string[] = ['Painting', 'TV', 'Dogs', 'Technology', 'Travel', 'Diving', 'Cooking', 'Biking', 'Sport', 'Music'];
+  keys = new FormControl('');
+  keysList: string[] = ['Painting', 'TV', 'Dogs', 'Technology', 'Travel', 'Diving', 'Cooking', 'Biking', 'Sport', 'Music'];
 
   ngOnInit() {
     this.crudApi.GetProjectsList();
@@ -40,7 +43,6 @@ export class AddProjectComponent implements OnInit {
       projectSummery: ['', []],
       createDate: ['', []],
       lastUpdateDate: ['', []],
-      Permissions: [[''], []]
     });
   }
 
@@ -65,8 +67,6 @@ export class AddProjectComponent implements OnInit {
   get permissions() {
     return this.projectForm.get('permissions');
   }
-
-
 
   ResetForm() {
     this.projectForm.reset();
