@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
-  selector: 'app-add-student', 
+  selector: 'app-add-student',
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.scss'],
 })
@@ -40,6 +40,7 @@ export class AddProjectComponent implements OnInit {
       projectSummery: ['', []],
       createDate: ['', []],
       lastUpdateDate: ['', []],
+      Permissions: [[''], []]
     });
   }
 
@@ -60,6 +61,11 @@ export class AddProjectComponent implements OnInit {
   get lastUpdateDate() {
     return this.projectForm.get('lastUpdateDate');
   }
+
+  get permissions() {
+    return this.projectForm.get('permissions');
+  }
+
 
 
   ResetForm() {

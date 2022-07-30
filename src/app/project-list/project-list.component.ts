@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProjectListComponent implements OnInit {
   p: number = 1;
   Project: Project[];
+  permissions: Project["permissions"];
   hideWhenNoProject: boolean = false;
   noData: boolean = false;
   preLoader: boolean = true;
@@ -52,5 +53,12 @@ export class ProjectListComponent implements OnInit {
       this.crudApi.DeleteProject(project.$key);
       this.toastr.success(project.projectName + ' successfully deleted!');
     }
+  }
+
+
+  shareProject(project, emailToAdd) {
+      this.crudApi.ShareProject(project.$key, project.permissions, emailToAdd);
+      this.toastr.success(project.projectName + ' successfully shares!');
+    
   }
 }

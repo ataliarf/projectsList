@@ -15,18 +15,15 @@ export class CrudService {
 
   // Create Project
   AddProject(project: Project) {
-    console.log('project:', project);
-    console.log('projectName:', project.projectName);
-    console.log('ownerEmail:', project.ownerEmail);
-    console.log('projectsRef', this.projectsRef);
+    const newArr= [project.ownerEmail];
     this.projectsRef.push({
       projectName: project.projectName,
       projectSummery: project.projectSummery,
       createDate: project.createDate,
       lastUpdateDate: project.lastUpdateDate,
-      // permissions: project.permissions,
-      // projectKeyWords: project.projectKeyWords,
       ownerEmail: project.ownerEmail,
+      permissions: newArr,
+      // projectKeyWords: project.projectKeyWords,
     });
   }
   // Fetch Single Project Object
@@ -51,9 +48,20 @@ export class CrudService {
       ownerEmail: project.ownerEmail,
     });
   }
-  // Delete Student Object
+  // Delete Project Object
   DeleteProject(id: string) {
     this.projectRef = this.db.object('projects-list/' + id);
     this.projectRef.remove();
+  }
+
+  ShareProject(id: string, currentPermissions: string[],  emailToAdd: string) {
+
+    const newArr=[currentPermissions];
+    console.log(newArr.flat);
+    this.projectRef = this.db.object('projects-list/' + id);
+    this.projectRef.update({
+      permissions: newArr,
+    });
+    
   }
 }

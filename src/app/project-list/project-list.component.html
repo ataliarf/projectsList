@@ -34,7 +34,10 @@
           <th scope="col">Project Summery</th>
           <th scope="col">Create Date</th>
           <th scope="col">Last Update Date</th>
-          <th class="text-center" scope="col">Edit</th>
+          <th scope="col">Permissions</th>
+          <th class="text-center" scope="col">Edit / Delete</th>
+          <th class="text-center" scope="col">Share Project</th>
+
         </tr>
       </thead>
       <tbody>
@@ -51,6 +54,8 @@
           <td>{{ project.projectSummery }}</td>
           <td>{{ project.createDate }}</td>
           <td>{{ project.lastUpdateDate }}</td>
+          <td>{{ project.permissions }}</td>
+
           
           <td class="text-center action-block">
             <span
@@ -64,6 +69,17 @@
               >Delete</span
             >
           </td>
+          <td class="text-center action-block">
+            enter email of someone to share this project with: <br>
+            <input placeHoldar="enter email">  <br> 
+            <span
+            class="mr-2 btn btn-outline-primary btn-sm"
+            (click)="shareProject(project, 'ata@gmail.com')"
+            >Share it! </span
+          >
+          <br> 
+                </td>
+
         </tr>
       </tbody>
     </table>
