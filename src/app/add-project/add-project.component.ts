@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../shared/crud.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
-  selector: 'app-add-student',
+  selector: 'app-add-student', 
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.scss'],
 })
@@ -17,6 +18,9 @@ export class AddProjectComponent implements OnInit {
     public fb: FormBuilder,
     public toastr: ToastrService
   ) {}
+
+  keys: string[] = ['History'];
+  allKeys: string[] = ['Painting', 'TV', 'Dogs', 'Technology', 'Travel', 'Diving', 'Cooking', 'Biking', 'Sport', 'Music'];
 
   ngOnInit() {
     this.crudApi.GetProjectsList();
@@ -33,6 +37,9 @@ export class AddProjectComponent implements OnInit {
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
         ],
       ],
+      projectSummery: ['', []],
+      createDate: ['', []],
+      lastUpdateDate: ['', []],
     });
   }
 
@@ -42,6 +49,16 @@ export class AddProjectComponent implements OnInit {
 
   get ownerEmail() {
     return this.projectForm.get('ownerEmail');
+  }
+
+  get projectSummery() {
+    return this.projectForm.get('projectSummery');
+  }
+  get createDate() {
+    return this.projectForm.get('createDate');
+  }
+  get lastUpdateDate() {
+    return this.projectForm.get('lastUpdateDate');
   }
 
 
@@ -57,3 +74,5 @@ export class AddProjectComponent implements OnInit {
     this.ResetForm();
   }
 }
+
+

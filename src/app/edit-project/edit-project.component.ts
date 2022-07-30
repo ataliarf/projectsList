@@ -42,6 +42,15 @@ export class EditProjectComponent implements OnInit {
   get ownerEmail() {
     return this.editForm.get('ownerEmail');
   }
+  get projectSummery() {
+    return this.editForm.get('projectSummery');
+  }
+  get createDate() {
+    return this.editForm.get('createDate');
+  }
+  get lastUpdateDate() {
+    return this.editForm.get('lastUpdateDate');
+  }
 
   updateProjectData() {
     this.editForm = this.fb.group({
@@ -53,6 +62,9 @@ export class EditProjectComponent implements OnInit {
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
         ],
       ],
+      projectSummery: ['', []],
+      createDate: ['', []],
+      lastUpdateDate: ['', []],
     });
   }
 

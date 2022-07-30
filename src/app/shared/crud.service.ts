@@ -21,9 +21,9 @@ export class CrudService {
     console.log('projectsRef', this.projectsRef);
     this.projectsRef.push({
       projectName: project.projectName,
-      // projectSummery: project.projectSummery,
-      // createDate: project.createDate,
-      // lastUpdateDate: project.lastUpdateDate,
+      projectSummery: project.projectSummery,
+      createDate: project.createDate,
+      lastUpdateDate: project.lastUpdateDate,
       // permissions: project.permissions,
       // projectKeyWords: project.projectKeyWords,
       ownerEmail: project.ownerEmail,
@@ -43,9 +43,9 @@ export class CrudService {
   UpdateProject(project: Project) {
     this.projectRef.update({
       projectName: project.projectName,
-      // projectSummery: project.projectSummery,
-      // createDate: project.createDate,
-      // lastUpdateDate: project.lastUpdateDate,
+      projectSummery: project.projectSummery,
+      createDate: project.createDate,
+      lastUpdateDate: project.lastUpdateDate,
       // permissions: project.permissions,
       // projectKeyWords: project.projectKeyWords,
       ownerEmail: project.ownerEmail,

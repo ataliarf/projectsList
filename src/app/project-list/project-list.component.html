@@ -3,7 +3,7 @@
 >
   <h2 class="h2">Projects List</h2>
   <a
-    routerLink="/register-student"
+    routerLink="/register-project"
     class="btn btn-success"
     *ngIf="hideWhenNoProject"
   >
@@ -31,6 +31,9 @@
           <th scope="col">Project Id</th>
           <th scope="col">Project name</th>
           <th scope="col">Owner Email</th>
+          <th scope="col">Project Summery</th>
+          <th scope="col">Create Date</th>
+          <th scope="col">Last Update Date</th>
           <th class="text-center" scope="col">Edit</th>
         </tr>
       </thead>
@@ -45,6 +48,10 @@
           <th scope="row">{{ project.$key }}</th>
           <td>{{ project.projectName }}</td>
           <td>{{ project.ownerEmail }}</td>
+          <td>{{ project.projectSummery }}</td>
+          <td>{{ project.createDate }}</td>
+          <td>{{ project.lastUpdateDate }}</td>
+          
           <td class="text-center action-block">
             <span
               class="mr-2 btn btn-outline-primary btn-sm"

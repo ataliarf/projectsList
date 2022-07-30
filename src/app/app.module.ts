@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ShareProjectComponent } from './share-project/share-project.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddProjectComponent,
     EditProjectComponent,
     ProjectListComponent,
+    ShareProjectComponent,
   ],
   imports: [
     BrowserModule,
