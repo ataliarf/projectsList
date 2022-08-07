@@ -25,8 +25,6 @@ export class CrudService {
       ownerEmail: project.ownerEmail,
       permissions: newArr,
     });
-console.log('is array', Array.isArray(newArr));
-console.log('newarr', newArr);
 
   }
   // Fetch Single Project Object
@@ -46,8 +44,6 @@ console.log('newarr', newArr);
       projectSummery: project.projectSummery,
       createDate: project.createDate,
       lastUpdateDate: project.lastUpdateDate,
-      // permissions: project.permissions,
-      // projectKeyWords: project.projectKeyWords,
       ownerEmail: project.ownerEmail,
     });
   }
@@ -57,16 +53,13 @@ console.log('newarr', newArr);
     this.projectRef.remove();
   }
 
-  ShareProject(id: string, currentPermissions: any ,  emailToAdd: string, counter: number) {
-    console.log('current perm:', currentPermissions);
-    const maybeArr = Object.values(currentPermissions);
-    console.log('maybeArr:', maybeArr);
-    maybeArr.push(emailToAdd);
-    console.log('maybeArr:', maybeArr);
+  ShareProject(id: string, currentPermissions: any ,  emailToAdd: string) {
+    const arr = Object.values(currentPermissions);
+    arr.push(emailToAdd);
 
      this.projectRef = this.db.object('projects-list/' + id);
      this.projectRef.update({
-       permissions: maybeArr,
+       permissions: arr,
      });
   }
 }

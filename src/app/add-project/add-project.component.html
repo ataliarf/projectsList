@@ -20,7 +20,7 @@
             />
             <!-- errors-->
             <p *ngIf="projectName.touched && projectName.invalid" class="error">
-              <sup>*</sup>Please enter atleast first name
+              <sup>*</sup>Please enter project name
             </p>
             <p *ngIf="projectName.errors?.['minlength']" class="error">
               <sup>*</sup>Name shouldn't be less than 2 words

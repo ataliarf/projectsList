@@ -17,7 +17,6 @@ export class ProjectListComponent implements OnInit {
   hideWhenNoProject: boolean = false;
   noData: boolean = false;
   preLoader: boolean = true;
-  counter: number = 1;
   emailOfSomeoneToInvite: string;
   userEmail: string | undefined;
 
@@ -74,8 +73,7 @@ export class ProjectListComponent implements OnInit {
 
 
   shareProject(project: Project) {
-      this.crudApi.ShareProject((project.$key), project.permissions, this.emailOfSomeoneToInvite, this.counter);
-      this.counter++;
+      this.crudApi.ShareProject((project.$key), project.permissions, project.emailOfSomeoneToInvite);
       this.toastr.success(project.projectName + ' successfully shares!');
   }
 }

@@ -2,8 +2,8 @@
   class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
 >
   <h2 class="h2">Projects List</h2> <br>
-  <h1> displays projects list for current user. <br> 
-  current user email is: {{userEmail}} </h1>
+   displays projects list for current user. <br> 
+  current user email is: <br> {{userEmail}} 
   <a
     routerLink="/register-project"
     class="btn btn-success"
@@ -36,8 +36,8 @@
           <th scope="col">Create Date</th>
           <th scope="col">Last Update Date</th>
           <th scope="col">Permissions</th>
-          <th class="text-center" scope="col">Edit / Delete</th>
-          <th class="text-center" scope="col">Share Project</th>
+          <th scope="col">Edit / Delete</th>
+          <th scope="col">Share Project</th>
 
         </tr>
       </thead>
@@ -78,9 +78,10 @@
               >Delete</span
             >
           </td>
+
           <td class="text-center action-block">
             enter email of someone to share this project with: <br>
-            <input type="email" [(ngModel)]="emailOfSomeoneToInvite">  <br> 
+            <input type="email" [(ngModel)]="project.emailOfSomeoneToInvite">  <br> 
             <span
             class="mr-2 btn btn-outline-primary btn-sm"
             (click)="shareProject(project)"

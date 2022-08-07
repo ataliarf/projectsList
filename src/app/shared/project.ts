@@ -6,5 +6,5 @@ export interface Project {
     lastUpdateDate: string;
     ownerEmail: string;
     permissions: string[]; //emails of people with permissions to see the project
-    projectKeyWords: string[];
+    emailOfSomeoneToInvite: string;
  }
